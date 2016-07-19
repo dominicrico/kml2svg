@@ -1,0 +1,34 @@
+{
+  "name": "kml2svg",
+  "version": "0.1.0",
+  "description": "Converts given KML file to SVG",
+  "main": "main.js",
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "minimist": "^1.2.0",
+    "request": "^2.73.0",
+    "xml2json": "^0.9.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dominicrico/kml2svg.git"
+  },
+  "keywords": [
+    "svg",
+    "kml",
+    "converter"
+  ],
+  "author": "Dominic Rico Gómez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dominicrico/kml2svg/issues"
+  },
+  "homepage": "https://github.com/dominicrico/kml2svg#readme",
+  "bin": {
+    "kml2svg": "bin/kml2svg"
+  }
+}

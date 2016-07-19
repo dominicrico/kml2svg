@@ -1,0 +1,6 @@
+#!/usr/bin/env node
+
+var kml2svg = require('../');
+var argv = require('minimist')(process.argv.slice(2));
+
+kml2svg(argv._[0]);
