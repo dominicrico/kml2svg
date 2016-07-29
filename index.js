@@ -75,12 +75,12 @@ function convert2svg(kml) {
   var corr = (maxLat - minLat) + (maxLng - minLng)*9;
 
   svgChords.forEach(function(chords, i){
-    if (i < svgChords.length-1) {
+    /*if (i < svgChords.length-1) {
       var d = getDistance(svgChords[i], svgChords[i+1]);
       var e = getElevation(svgChords[i], svgChords[i+1]);
       distance += d;
       elevation += e;
-    }
+    }*/
 
     var y = (3963.0 * Math.acos(Math.sin(maxLat/57.2958) * Math.sin(chords.lat/57.2958) + Math.cos(maxLat/57.2958) * Math.cos(chords.lat/57.2958) *  Math.cos(minLng/57.2958 - minLng/57.2958)));
   	var x = (3963.0 * Math.acos(Math.sin(maxLat/57.2958) * Math.sin(maxLat/57.2958) + Math.cos(maxLat/57.2958) * Math.cos(maxLat/57.2958) *  Math.cos(chords.lng/57.2958 - minLng/57.2958)));
@@ -90,11 +90,8 @@ function convert2svg(kml) {
   });
   output += '<polyline id="track" class="poly" data-name="track" points="' + points + '" style="fill:transparent;stroke:#999;stroke-width:3" />';
   output += '</g></svg></body></html>';
-  distance = distance - distance*corr;
 
-  console.log({svg: output, distance: distance, grade: (elevation/distance)*100});
-  console.log(corr);
-  return {svg: output, distance: distance, grade: (elevation/distance)*100};
+  return output;
 }
 
 function getChordsFromKML(placemarks) {
@@ -129,7 +126,7 @@ function checkCords(lng, lat, alt)
 	return {lat: lat, lng: lng, alt: alt};
 }
 
-function getElevation(p1, p2) {
+/*function getElevation(p1, p2) {
   var e1 = parseFloat(p1.alt);
   var e2 = parseFloat(p2.alt);
 
@@ -150,4 +147,4 @@ function getDistance(p1, p2) {
 
   distance = ((((6356.8*2)+( 6378.1*2))/2) * Math.asin(Math.sqrt(a)));
   return distance*1000;
-}
+}*/
