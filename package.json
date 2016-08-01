@@ -1,6 +1,6 @@
 {
   "name": "kml2svg",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Converts given KML file or GoogleMaps route to SVG path",
   "main": "index.js",
   "dependencies": {
