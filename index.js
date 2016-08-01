@@ -90,8 +90,12 @@ function convert2svg(kml) {
   });
   output += '<polyline id="track" class="poly" data-name="track" points="' + points + '" style="fill:transparent;stroke:#999;stroke-width:3" />';
   output += '</g></svg></body></html>';
-
-  return output;
+  if (!module.parent) {
+    return output;
+  } else {
+    console.log(output);
+    process.exit(0);
+  }
 }
 
 function getChordsFromKML(placemarks) {
